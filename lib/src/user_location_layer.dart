@@ -30,7 +30,6 @@ class _MapsPluginLayerState extends State<MapsPluginLayer>
 
   StreamSubscription<LocationData> _onLocationChangedStreamSubscription;
 
-
   @override
   void initState() {
     super.initState();
@@ -167,10 +166,6 @@ class _MapsPluginLayerState extends State<MapsPluginLayer>
         zoom ?? widget.map.zoom ?? 15,
         widget.options.mapController,
         this);
-    // widget.options.mapController.move(
-    //     LatLng(_currentLocation.latitude ?? LatLng(0, 0),
-    //         _currentLocation.longitude ?? LatLng(0, 0)),
-    //     widget.map.zoom ?? 15);
   }
 
   void _handleLocationChanges() {
@@ -212,9 +207,7 @@ class _MapsPluginLayerState extends State<MapsPluginLayer>
                 onTap: () {
                   initialize();
                   if (initialStateOfupdateMapLocationOnPositionChange) {
-                    setState(() {
-                      widget.options.updateMapLocationOnPositionChange = false;
-                    });
+                    widget.options.updateMapLocationOnPositionChange = false;
                   }
                   _moveMapToCurrentLocation(zoom: 17.0);
                 },
@@ -265,17 +258,13 @@ class _MapsPluginLayerState extends State<MapsPluginLayer>
     animation.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         if (initialStateOfupdateMapLocationOnPositionChange) {
-          setState(() {
-            widget.options.updateMapLocationOnPositionChange = true;
-          });
+          widget.options.updateMapLocationOnPositionChange = true;
         }
 
         controller.dispose();
       } else if (status == AnimationStatus.dismissed) {
         if (initialStateOfupdateMapLocationOnPositionChange) {
-          setState(() {
-            widget.options.updateMapLocationOnPositionChange = true;
-          });
+          widget.options.updateMapLocationOnPositionChange = true;
         }
         controller.dispose();
       }
