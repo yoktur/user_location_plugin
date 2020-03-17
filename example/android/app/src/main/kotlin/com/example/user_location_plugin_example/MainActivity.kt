@@ -1,4 +1,4 @@
-package com.example.user_location_example
+package com.example.user_location_plugin_example
 
 import android.os.Bundle
 
@@ -11,4 +11,3 @@ class MainActivity: FlutterActivity() {
         GeneratedPluginRegistrant.registerWith(this)
     }
 }
-
